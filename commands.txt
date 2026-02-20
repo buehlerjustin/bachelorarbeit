@@ -1,7 +1,0 @@
-docker run -v "/$PWD:/root" docker.verbis.dkfz.de/pseudonymisierung/mainzelliste.client.cli:1.0.4 ADD_PATIENT -t=CSV --csv-separator=";" -i="./data/mut_test_records_10000.csv" -ids=pid -l=10000 -u=http://host.docker.internal:8080  -k=pleaseChangeMeToo -ii -out="output.csv" -s
-
-
-docker exec -it <docker-contianer-id> psql -U mainzelliste mainzelliste -c "COPY(SELECT assignedpatient_patientjpaid,inputfieldsstring,bestMatchedWeight,bestmatchedpatient_patientjpaid,timestamp FROM public.idrequest ORDER BY timestamp ASC) TO STDOUT WITH CSV HEADER" > db_check.csv
-
-
-docker exec -it <docker-contianer-id> psql -U mainzelliste mainzelliste -c "COPY(SELECT * FROM public.patient) TO STDOUT WITH CSV HEADER" > patient_records.csv
